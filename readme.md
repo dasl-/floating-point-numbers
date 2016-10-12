@@ -28,13 +28,13 @@ More succinctly, here is the formula:
 
 ![floating point representation](img/float-formula.gif)
 
-The first term in the formula gives its sign via the *sign bit*.
+The first term in the formula gives the sign of the float via the *sign bit*.
 
 The second term in the formula is a binary fraction.
 
 The exponent *exp* is biased by subtracting 127. This allows our biased exponent to take both positive and negative values.
 
-Here are some examples of converting from the the single precision floating point format to a decimal number:
+Here are some examples of converting from the single precision floating point format to a decimal number:
 #### Ex1
 ![](img/ex1.gif)
 
@@ -102,4 +102,6 @@ Another interesting fact that I will not go into extreme detail here is that for
 1. Adjacent floats have adjacent integer representations
 2. Incrementing the integer representation of a float moves to the next representable float, moving away from zero
 
-(credit: [Bruce Dawson](https://randomascii.wordpress.com/2012/01/23/stupid-float-tricks-2/) for the wording of this fact)
+(credit: [Bruce Dawson](https://randomascii.wordpress.com/2012/01/23/stupid-float-tricks-2/) for the wording of these facts)
+
+Hopefully this introduction to floating point numbers is enough to give you an intuition on why these facts are true.
