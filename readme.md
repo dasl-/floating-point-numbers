@@ -16,7 +16,7 @@ Let's start simple. How about a basic refresher on binary numbers (the subscript
 Single precision floating point numbers are laid out as follows:
 
 
-![floating point representation](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Float_example.svg/590px-Float_example.svg.png)
+![floating point representation](img/float-bits-format.png)
 
 * The 31st bit is the *sign bit*. A value of 0 indicates a positive number. A value of 1 indicates a negative number.
 * The next 8 bits (30 through 23) give us the exponent *exp*
