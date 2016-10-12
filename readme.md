@@ -86,14 +86,14 @@ We have two cases:
 
 Note that we cannot have the exponent of *f1* be greater than the exponent of *f2* -- that would violate our assumption that *f1* < *f2*.
 
-Let ![](http://i.imgur.com/vMUzL9U.gif) and ![](http://i.imgur.com/zri7oXk.gif) represent the eight exponent bits of *f1* and *f2* respectively. In case (1), we know that there exists some *i* between 23 and 30 (inclusive) such that  *b<sub>i</sub>* < *c<sub>i</sub>*, and for all *j* > *i*, *b<sub>j</sub>* = *c<sub>j</sub>*. In other words, if the exponent of *f2* is larger, there is a first digit where the exponent bits differ and the and *f2*'s is larger.
+Let ![](http://i.imgur.com/vMUzL9U.gif) and ![](http://i.imgur.com/zri7oXk.gif) represent the eight exponent bits of *f1* and *f2* respectively. In case (1), we know that there exists some *i* between 23 and 30 (inclusive) such that  *b<sub>i</sub>* < *c<sub>i</sub>*, and for all *j* > *i*, *b<sub>j</sub>* = *c<sub>j</sub>*. In other words, if the exponent of *f2* is larger, there is a first digit where the exponent bits differ and *f2*'s is larger.
 
 It follows that *i1* < *i2*, because the eight exponent bits precede the 23 fraction bits.
 
 In case (2), since the exponents are equal, we know that the *f2*'s fraction must be larger than *f1*'s fraction. It follows that *i1* < *i2*.
 
 ### Addendum
-I have not covered special cases in the floating point format, in particular the representation of zero and the representation of [subnormal numbers](https://en.wikipedia.org/wiki/Denormal_number) (that link does not give a great explanation of the concept, but I am unaware of a better source). Observant readers may have noticed there is no way to represent zero in the floating point format!
+I have not covered special cases in the floating point format, in particular the representation of zero and the representation of [subnormal numbers](https://en.wikipedia.org/wiki/Denormal_number) (that link does not give a great explanation of the concept, but I am unaware of a better source). Observant readers may have noticed there is no way to represent zero in the floating point format given the formulas I have provided!
 
 Extending these proofs to cover the zero and subnormal cases is left as an excercise for the reader.
 
