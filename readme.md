@@ -50,7 +50,7 @@ Recall the single precision floating point number formula:
 
 ![floating point representation](http://i.imgur.com/egmmaZ7.gif)
 
-We can now see that floating point numbers are essentially represented in binary scientific notation. In paricular, floating point numbers are expressed in [normalized scientific notation](https://en.wikipedia.org/wiki/Scientific_notation#Normalized_notation).
+We can now see that floating point numbers are essentially represented in binary scientific notation. In particular, floating point numbers are expressed in [normalized scientific notation](https://en.wikipedia.org/wiki/Scientific_notation#Normalized_notation).
 
 In binary scientific notation, all numbers are written in the form
 ![](http://i.imgur.com/NWcpCim.gif). In normalized binary scientific notation,  the exponent *n* is chosen so that the absolute value of *m* remains at least one but less than two (1 ≤ |*m*| < 2).
@@ -71,26 +71,26 @@ From [Bruce Dawson](http://www.cygnus-software.com/papers/comparingfloats/Compar
 
 Let's try to prove this fact!
 
-*Claim:* Let *f1* < *f2* where *f1* and *f2* are both positive floats. When their bits are interpreted as integers *i1* and *i2* respectively, *i1* < *i2*.
+*Claim:* Let *f<sub>1</sub>* < *f<sub>2</sub>* where *f<sub>1</sub>* and *f<sub>2</sub>* are both positive floats. When their bits are interpreted as integers *i<sub>1</sub>* and *i<sub>2</sub>* respectively, *i<sub>1</sub>* < *i<sub>2</sub>*.
 
 *Proof:* Recall the floating point representation:
 
 ![floating point representation](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Float_example.svg/590px-Float_example.svg.png)
 
-Since *f1* and *f2* are positive, we know the sign bit will be zero for both.
+Since *f<sub>1</sub>* and *f<sub>2</sub>* are positive, we know the sign bit will be zero for both.
 
 We have two cases:
 
-1. The exponent of *f1* is less than the exponent of *f2*
-2. The exponent of *f1* is equal to the exponent of *f2*
+1. The exponent of *f<sub>1</sub>* is less than the exponent of *f<sub>2</sub>*
+2. The exponent of *f<sub>1</sub>* is equal to the exponent of *f<sub>2</sub>*
 
-Note that we cannot have the exponent of *f1* be greater than the exponent of *f2* -- that would violate our assumption that *f1* < *f2*.
+Note that we cannot have the exponent of *f<sub>1</sub>* be greater than the exponent of *f<sub>2</sub>* -- that would violate our assumption that *f<sub>1</sub>* < *f<sub>2</sub>*.
 
-Let ![](http://i.imgur.com/vMUzL9U.gif) and ![](http://i.imgur.com/zri7oXk.gif) represent the eight exponent bits of *f1* and *f2* respectively. In case (1), we know that there exists some *i* between 23 and 30 (inclusive) such that  *b<sub>i</sub>* < *c<sub>i</sub>*, and for all *j* > *i*, *b<sub>j</sub>* = *c<sub>j</sub>*. In other words, if the exponent of *f2* is larger, there is a first digit where the exponent bits differ and *f2*'s is larger.
+Let ![](http://i.imgur.com/vMUzL9U.gif) and ![](http://i.imgur.com/zri7oXk.gif) represent the eight exponent bits of *f<sub>1</sub>* and *f<sub>2</sub>* respectively. In case (1), we know that there exists some *i* between 23 and 30 (inclusive) such that  *b<sub>i</sub>* < *c<sub>i</sub>*, and for all *j* > *i*, *b<sub>j</sub>* = *c<sub>j</sub>*. In other words, if the exponent of *f<sub>2</sub>* is larger, there is a first digit where the exponent bits differ and *f<sub>2</sub>*'s is larger.
 
-It follows that *i1* < *i2*, because the eight exponent bits precede the 23 fraction bits.
+It follows that *i<sub>1</sub>* < *i<sub>2</sub>*, because the eight exponent bits precede the 23 fraction bits.
 
-In case (2), since the exponents are equal, we know that the *f2*'s fraction must be larger than *f1*'s fraction. It follows that *i1* < *i2*.
+In case (2), since the exponents are equal, we know that the *f<sub>2</sub>*'s fraction must be larger than *f<sub>1</sub>*'s fraction. It follows that *i<sub>1</sub>* < *i<sub>2</sub>*.
 
 ### Addendum
 I have not covered special cases in the floating point format, in particular the representation of zero and the representation of [subnormal numbers](https://en.wikipedia.org/wiki/Denormal_number) (that link does not give a great explanation of the concept, but I am unaware of a better source). Observant readers may have noticed there is no way to represent zero in the floating point format given the formulas I have provided!
