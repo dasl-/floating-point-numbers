@@ -98,6 +98,7 @@ I have not covered special cases in the floating point format, in particular the
 Extending these proofs to cover the zero and subnormal cases is left as an excercise for the reader.
 
 Another interesting fact that I will not go into extreme detail here is that for floats of the same sign:
+
 1. Adjacent floats have adjacent integer representations
 2. Incrementing the integer representation of a float moves to the next representable float, moving away from zero
 
