@@ -1,5 +1,5 @@
 # Floating point numbers
-This is an introduction to some of the basic concepts of floating point numbers. We will build up to prove some interesting facts about their representation.
+This is an introduction to some of the basic concepts of floating point numbers in the [IEEE 754 floating point standard](https://en.wikipedia.org/wiki/IEEE_floating_point). We will build up to prove some interesting facts about their representation.
 
 Let's start simple. How about a basic refresher on binary numbers (the subscript at the end of a number indicates its base):
 
