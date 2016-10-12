@@ -6,11 +6,11 @@ Let's start simple. How about a basic refresher on binary numbers (the subscript
 ### Binary review
 *Converting a binary number to decimal:*
 
-![](http://i.imgur.com/DqwdaL4.gif)
+![](img/binary-review1.gif)
 
 *With a binary fraction, we simply continue the pattern:*
 
-![](http://i.imgur.com/Dfr683N.gif)
+![](img/binary-review2.gif)
 
 ### The floating point format
 Single precision floating point numbers are laid out as follows:
@@ -26,7 +26,7 @@ There are 32 bits in all.
 
 More succinctly, here is the formula:
 
-![floating point representation](http://i.imgur.com/egmmaZ7.gif)
+![floating point representation](img/float-formula.gif)
 
 The first term in the formula gives its sign via the *sign bit*.
 
@@ -36,24 +36,24 @@ The exponent *exp* is biased by subtracting 127. This allows our biased exponent
 
 Here are some examples of converting from the the single precision floating point format to a decimal number:
 #### Ex1
-![](http://i.imgur.com/V81DtAp.gif)
+![](img/ex1.gif)
 
 #### Ex2
-![](http://i.imgur.com/DrWFdk1.gif)
+![](img/ex2.gif)
 
 #### Ex3 (a different way of looking at Ex2)
-![](http://i.imgur.com/rEJP6Kb.gif)
+![](img/ex3.gif)
 
 In the last step, we simply move the decimal over four places. This is binary scientific notation!
 
 Recall the single precision floating point number formula:
 
-![floating point representation](http://i.imgur.com/egmmaZ7.gif)
+![floating point representation](img/float-formula.gif)
 
 We can now see that floating point numbers are essentially represented in binary scientific notation. In particular, floating point numbers are expressed in [normalized scientific notation](https://en.wikipedia.org/wiki/Scientific_notation#Normalized_notation).
 
 In binary scientific notation, all numbers are written in the form
-![](http://i.imgur.com/NWcpCim.gif). In normalized binary scientific notation,  the exponent *n* is chosen so that the absolute value of *m* remains at least one but less than two (1 ≤ |*m*| < 2).
+![](img/scientific-notation.gif). In normalized binary scientific notation,  the exponent *n* is chosen so that the absolute value of *m* remains at least one but less than two (1 ≤ |*m*| < 2).
 
 With this knowledge, we can prove some interesting facts.
 
@@ -75,7 +75,7 @@ Let's try to prove this fact!
 
 *Proof:* Recall the floating point representation:
 
-![floating point representation](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Float_example.svg/590px-Float_example.svg.png)
+![floating point representation](img/float-bits-format.png)
 
 Since *f<sub>1</sub>* and *f<sub>2</sub>* are positive, we know the sign bit will be zero for both.
 
@@ -86,7 +86,7 @@ We have two cases:
 
 Note that we cannot have the exponent of *f<sub>1</sub>* be greater than the exponent of *f<sub>2</sub>* -- that would violate our assumption that *f<sub>1</sub>* < *f<sub>2</sub>*.
 
-Let ![](http://i.imgur.com/vMUzL9U.gif) and ![](http://i.imgur.com/zri7oXk.gif) represent the eight exponent bits of *f<sub>1</sub>* and *f<sub>2</sub>* respectively. In case (1), we know that there exists some *i* between 23 and 30 (inclusive) such that  *b<sub>i</sub>* < *c<sub>i</sub>*, and for all *j* > *i*, *b<sub>j</sub>* = *c<sub>j</sub>*. In other words, if the exponent of *f<sub>2</sub>* is larger, there is a first digit where the exponent bits differ and *f<sub>2</sub>*'s is larger.
+Let ![](img/exp-bits1.gif) and ![](img/exp-bits2.gif) represent the eight exponent bits of *f<sub>1</sub>* and *f<sub>2</sub>* respectively. In case (1), we know that there exists some *i* between 23 and 30 (inclusive) such that  *b<sub>i</sub>* < *c<sub>i</sub>*, and for all *j* > *i*, *b<sub>j</sub>* = *c<sub>j</sub>*. In other words, if the exponent of *f<sub>2</sub>* is larger, there is a first digit where the exponent bits differ and *f<sub>2</sub>*'s is larger.
 
 It follows that *i<sub>1</sub>* < *i<sub>2</sub>*, because the eight exponent bits precede the 23 fraction bits.
 
